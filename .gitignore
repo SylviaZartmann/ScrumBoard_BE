@@ -1,3 +1,6 @@
+up.bat
+.gitignore
+
 # Django #
 *.log
 *.pot

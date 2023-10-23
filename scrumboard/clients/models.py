@@ -1,6 +1,5 @@
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
-from contacts.models import Contact
 
 # Create your models here.
 class Client(models.Model):
@@ -10,6 +9,6 @@ class Client(models.Model):
     origin_city = models.CharField(max_length=50)
     origin_street = models.CharField(max_length=50)
     origin_post_code = models.CharField(max_length=50)
-    contact_person = models.ForeignKey(Contact, default='', on_delete=models.SET_NULL, null=True, blank=True)
+    contact_person = models.OneToOneField('contacts.Contact', default='', on_delete=models.SET_NULL, null=True, blank=True)
     
     

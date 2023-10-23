@@ -8,5 +8,5 @@ class Contact(models.Model):
     lastname = models.CharField(default='', max_length=50)
     email = models.EmailField(default='')
     phone = PhoneNumberField(default='')
-    #company= models.ForeignKey(Clients, default='', on_delete=models.SET_NULL, null=True, blank=True)
-    color = models.CharField(default="#000000")
+    company= models.OneToOneField('clients.Client', default='', on_delete=models.SET_NULL, null=True, blank=True)
+    color = models.CharField(default="#000000", max_length=7)

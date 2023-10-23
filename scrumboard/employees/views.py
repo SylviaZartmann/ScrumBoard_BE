@@ -1,3 +1,10 @@
 from django.shortcuts import render
+from rest_framework import viewsets
 
-# Create your views here.
+from employees.models import Employee
+from employees.serializers import EmployeeSerializer
+
+# ViewSets define the view behavior.
+class EmployeeViewSet(viewsets.ModelViewSet):
+    queryset = Employee.objects.all()
+    serializer_class = EmployeeSerializer

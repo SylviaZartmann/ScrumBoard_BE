@@ -26,5 +26,5 @@ class Employee(models.Model):
     leaving_date = models.DateField(default=None, blank=False, null=True)
     working_hours = models.IntegerField(default='')
     salary = models.IntegerField(default='')
-    color = models.CharField(default="#000000")
-    #current_project = models.ForeignKey(Project, default='')
+    color = models.CharField(default="#000000", max_length=7)
+    current_project = models.ManyToManyField('project.Project', default='')

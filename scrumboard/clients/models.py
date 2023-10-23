@@ -10,5 +10,6 @@ class Client(models.Model):
     origin_street = models.CharField(max_length=50)
     origin_post_code = models.CharField(max_length=50)
     contact_person = models.OneToOneField('contacts.Contact', default='', on_delete=models.SET_NULL, null=True, blank=True)
-    
+    class Meta:
+        ordering = ['name']
     

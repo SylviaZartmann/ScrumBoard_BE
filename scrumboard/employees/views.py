@@ -6,5 +6,5 @@ from employees.serializers import EmployeeSerializer
 
 # ViewSets define the view behavior.
 class EmployeeViewSet(viewsets.ModelViewSet):
-    queryset = Employee.objects.all()
+    queryset = Employee.objects.all().order_by('lastname')
     serializer_class = EmployeeSerializer

@@ -1,8 +1,8 @@
 from clients.serializers import ClientSerializer
 from rest_framework import viewsets
-from project.models import Project
+from clients.models import Client
 
 # ViewSets define the view behavior.
 class ClientViewSet(viewsets.ModelViewSet):
-    queryset = Project.objects.all()
+    queryset = Client.objects.all()
     serializer_class = ClientSerializer

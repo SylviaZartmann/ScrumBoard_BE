@@ -27,4 +27,4 @@ class Employee(models.Model):
     working_hours = models.IntegerField(default='')
     salary = models.IntegerField(default='')
     color = models.CharField(default="#000000", max_length=7)
-    current_project = models.ManyToManyField('project.Project', default='')
+    current_project = models.ManyToManyField('project.Project', default='', blank=True)

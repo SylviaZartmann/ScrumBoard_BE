@@ -21,8 +21,3 @@ class Contract(models.Model):
     date_start = models.DateField(default=None, blank=False, null=True)
     date_end = models.DateField(default=None, blank=False, null=True)
     precessing_time = models.DurationField(default='')
-
-    # def clean(self):
-    #     lead = Employee.get_lead()
-    #     if self.contractor != lead:
-    #         raise ValidationError("Der Vertragspartner muss der Geschäftsführung zugeordnet sein.")

@@ -10,3 +10,6 @@ class Contact(models.Model):
     phone = PhoneNumberField(default='')
     company= models.OneToOneField('clients.Client', default='', on_delete=models.SET_NULL, null=True, blank=True)
     color = models.CharField(default="#000000", max_length=7)
+    
+    def __str__(self):
+        return self.firstname + ' ' + self.lastname

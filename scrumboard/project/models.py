@@ -12,3 +12,6 @@ class Project(models.Model):
     date_start = models.DateField(default=None, blank=False, null=True)
     date_end = models.DateField(default=None, blank=False, null=True)
     features = models.CharField(default='', max_length=500)
+    
+    def __str__(self):
+        return self.name

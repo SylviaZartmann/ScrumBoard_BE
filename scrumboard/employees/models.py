@@ -28,3 +28,9 @@ class Employee(models.Model):
     salary = models.IntegerField(default='')
     color = models.CharField(default="#000000", max_length=7)
     current_project = models.ManyToManyField('project.Project', default='', blank=True)
+    
+    def __str__(self):
+        return self.firstname  + ' ' +  self.lastname
+    
+    def get_lead(cls):
+        return cls.objects.get(profession='lead')

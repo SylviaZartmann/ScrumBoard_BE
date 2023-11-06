@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms import ValidationError
 from clients.models import Client
 from employees.models import Employee
 
@@ -15,8 +16,13 @@ class Contract(models.Model):
     contracting_date = models.DateField(default=None, blank=False, null=True)
     contracting_kind = models.CharField(max_length=20, choices=CONTRACTING_KINDS, default="")
     order_value = models.IntegerField(default='')
-    contractor = models.ForeignKey(Employee, on_delete=models.SET_NULL, null=True, related_name='contractor', limit_choices_to={'designation': 'Geschäftsführung'}, default='')
+    contractor = models.ForeignKey(Employee, on_delete=models.SET_NULL, null=True, related_name='contractor', default='', limit_choices_to={'profession': 'lead'})
     client = models.ForeignKey(Client, default='', on_delete=models.SET_NULL, null=True)
     date_start = models.DateField(default=None, blank=False, null=True)
     date_end = models.DateField(default=None, blank=False, null=True)
     precessing_time = models.DurationField(default='')
+
+    # def clean(self):
+    #     lead = Employee.get_lead()
+    #     if self.contractor != lead:
+    #         raise ValidationError("Der Vertragspartner muss der Geschäftsführung zugeordnet sein.")
